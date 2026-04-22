@@ -2,13 +2,13 @@ from fastapi.testclient import TestClient
 from main import app
 client = TestClient(app)
 def test_crear_estacion():
-response = client.post("/estaciones/", json={
-"id": 1,
-"nombre": "Estación Rímac",
-"ubicacion": "Chosica"
-})
-assert response.status_code == 201
-assert response.json()["data"]["nombre"] == "Estación Rímac"
+    response = client.post("/estaciones/", json={
+        "id": 1,
+        "nombre": "Estación Rímac",
+        "ubicacion": "Chosica"
+    })
+    assert response.status_code == 201
+    assert response.json()["data"]["nombre"] == "Estación Rímac"
 
 def test_registrar_lectura():
 	# Simulamos lectura de sensor para la estación ID 1
